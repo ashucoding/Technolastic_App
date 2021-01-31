@@ -7,7 +7,14 @@
 }
 
 body{
-    background: #007bff;
+    /* background: #007bff; */
+    background-image: url(BE_illustration.png),
+    url(Tim_Berners.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: -350px -90px,
+                          750px 67px;
+    
 }
 
 
@@ -20,7 +27,7 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0px 4px 8px 0 rgba(0, 0, 0, 0.2),
-                0px 6px 20px 0 rgba(0, 0, 0, 0.2);
+                0px 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
@@ -34,7 +41,7 @@ body{
     outline: none;
     border: none;
     border-radius: 5px;
-    background: #fff;
+    background: rgb(169, 217, 247);
     cursor: pointer;
 }
 
