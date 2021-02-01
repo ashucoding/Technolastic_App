@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('http://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -7,7 +7,6 @@
 }
 
 body{
-    /* background: #007bff; */
     background-image: url(BE_illustration.png),
     url(Tim_Berners.jpg);
     background-repeat: no-repeat;
@@ -31,6 +30,13 @@ body{
 
 }
 
+.info_box.activeInfo{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
 /* Start Quiz Button Styling*/
 
 .start_btn button{
@@ -46,7 +52,6 @@ body{
 }
 
 .info_box{
-    /* display: none; */
     width: 540px;
     background: #fff;
     border-radius: 5px;
@@ -122,7 +127,6 @@ body{
 }
 
 .quiz_box{
-    /* display: none; */
     width: 550px;
     background: #fff;
     border-radius: 5px;
