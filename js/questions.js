@@ -3,7 +3,7 @@ let questions = [
         numb: 1,
         question: "What does DOM stand for?",
         answer: "Document Object Model",
-        options: [
+        options:[
             "Dictators Objecting Madness",
             "Document Object Model",
             "Drinks On Me",
@@ -15,7 +15,7 @@ let questions = [
     numb: 2,
     question: "What are the different data types present in javascript?",
     answer: "Primitive and Non Primitive",
-    options: [
+    options:[
         "Basic and Non Basic",
         "Primitive and Non Primitive",
         "Real and Fake",
@@ -26,7 +26,7 @@ let questions = [
     numb: 3,
     question: "Explain passed by value and passed by reference",
     answer: "Primitive data types are passed by value and non-primitive data types are passed by reference",
-    options: [
+    options:[
         "Non-primitive data types are passed by value and primitive data types are passed by reference",
         "True data types are passed by value and false data types are passed by reference",
         "Primitive data types are passed by value and non-primitive data types are passed by reference",
@@ -36,7 +36,7 @@ let questions = [
 {    numb: 4,
     question: "Which statement is true about 'this' keyword",
     answer: "The value of “this” keyword will always depend on the object that is invoking the function",
-    options: [
+    options:[
         "The value of “this” keyword will always depend on the object that is invoking the function",
         "'This' keyword will always rename the object",
         "'This' keyword replaces 'const'",
@@ -47,7 +47,7 @@ let questions = [
  {    numb: 5,
     question: "What are three types of scopes in JS?",
     answer: "Global, Local, Block",
-    options: [
+    options:[
         "False, True, and Undefined",
         "World, State, City",
         "Global, Local, Block",
@@ -58,7 +58,7 @@ let questions = [
  {    numb: 6,
     question: "What statement best describes Closures in JS?",
     answer: "Closures is an ability of a function to remember the variables and functions that are declared in its outer scope",
-    options: [
+    options:[
         "The end of your program",
         "Closures is an ability of a function to remember the variables and functions that are declared in its outer scope",
         "The end of a line of code",
@@ -68,7 +68,7 @@ let questions = [
  {    numb: 7,
     question: "What are object prototypes?",
     answer: "A prototype is a blueprint of an object",
-    options: [
+    options:[
         "A demo of your app",
         "A prototype is a blueprint of an object",
         "A physical model of objects in js",
@@ -78,7 +78,7 @@ let questions = [
  {    numb: 8,
     question: "What are callbacks?",
     answer: "Functions that are used as an argument to another function",
-    options: [
+    options:[
         "Functions that are used as an argument to another function",
         "Copy and Paste of a function",
         "An argument of a function",
@@ -88,7 +88,7 @@ let questions = [
  {    numb: 9,
     question: "What is recursion in a programming language?",
     answer: "A technique to iterate over an operation by having a function call itself repeatedly until it arrives at a result",
-    options: [
+    options:[
         "Another word for iterate",
         "Characterized by recurrence or repetition",
         "To destroy your code",
@@ -98,12 +98,12 @@ let questions = [
  {    numb: 10,
     question: "What is the use of promises in javascript?",
     answer: "Promises are used to handle asynchronous operations in javascript",
-    options: [
+    options:[
         "A declaration or assurance that one will do a particular thing or that a particular thing will happen",
         "Read ME declaration of love for your program",
         "Promises are used to handle asynchronous operations in javascript",
         "A technique to iterate over an operation by having a function call itself repeatedly until it arrives at a result"
     ]
- }
+ },
 ];
 
