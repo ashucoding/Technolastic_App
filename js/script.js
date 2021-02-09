@@ -53,7 +53,7 @@ restart_quiz.onclick = ()=>{
     clearInterval(counter);
     startTimer(timevalue);
     clearInterval(counterLine);
-    startTimerLine(widthvalue);
+    startTimerLine(widthValue);
     next_btn.style.display = "none";
     timeoff.textContent = "Time Left";
 }
@@ -64,23 +64,23 @@ quit_quiz.onclick = ()=>{
 }
 
 next_btn.onclick = ()=>{
-    if(que_count < questions.length - 1){
-     que_count++;
-     que_numb++;
-    showQuestions(que_count);
-    queCounter(que_numb);
-    clearInterval(counter);
-    startTimer(timevalue);
-    clearInterval(counterLine);
-    startTimerLine(widthvalue);
-    next_btn.style.display = "none";
-    timeoff.textContent = "Time Left";
-} else{
-    clearInterval(counter);
-    clearInterval(counterLine);
-    console.log("Questions completed");
-    showResultBox();
-}
+    if (que_count < questions.length - 1) {
+        que_count++;
+        que_numb++;
+        showQuestions(que_count);
+        queCounter(que_numb);
+        clearInterval(counter);
+        startTimer(timevalue);
+        clearInterval(counterLine);
+        startTimerLine(widthValue);
+        next_btn.style.display = "none";
+        timeoff.textContent = "Time Left";
+    } else {
+        clearInterval(counter);
+        clearInterval(counterLine);
+        console.log("Questions completed");
+        showResultBox();
+    }
 };
 
 
@@ -106,16 +106,16 @@ let crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>';
 function optionSelected(answer){
     clearInterval(counter);
     clearInterval(counterLine);
-    let userAns = answer.textContent;
+    let userAns = answer.textContent.trim();
     let correctAns = questions[que_count].answer;
     let allOptions = option_list.children.length;
-    userScore += 1;
     console.log(userScore);
     if(userAns == correctAns){
+        userScore += 1;
         answer.classList.add("correct");
         console.log("right answer");
         answer.insertAdjacentHTML("beforeend", tickIcon);
-    }else {
+    } else {
         answer.classList.add("incorrect");
         console.log("wrong answer");
         answer.insertAdjacentHTML("beforeend", crossIcon);
@@ -139,7 +139,7 @@ function showResultBox(){
     info_box.classList.remove("activeInfo");
     quiz_box.classList.remove("activeQuiz");
     result_box.classList.add("activeResult");
-    const scoreText = result_box.querySelector("score_text");
+    const scoreText = result_box.querySelector(".score_text");
     if(userScore > 8){
         let scoreTag = '<span>and Congrats! You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag; 
@@ -148,10 +148,11 @@ function showResultBox(){
         let scoreTag = '<span>and nice, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag; 
     }
-    else(userScore > 3)
+    else {
         let scoreTag = '<span>and sorry, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag; 
     }
+}
 
 
 
