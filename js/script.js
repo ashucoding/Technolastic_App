@@ -8,6 +8,10 @@ const option_list = document.querySelector(".option_list");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeline = quiz_box.querySelector("header .time_line");
 const timeoff = quiz_box.querySelector("header .time_text");
+const username = document.getElementById('username');
+const saveScoreBtn = document.getElementById("saveScoreBtn");
+const scoresAdapter = new ScoresAdapter();
+//const mostRecentScore = adapter.getScores('mostRecentScore');
 
 //start quiz button//
 start_btn.onclick = ()=>{
@@ -152,7 +156,19 @@ function showResultBox(){
         let scoreTag = '<span>and sorry, You got only <p>'+ userScore +'</p> out of <p>'+ questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag; 
     }
-}
+};
+
+function saveHighScore(e){
+    console.log("clicked the save button");
+    e.preventDefault();
+    scoresAdapter.createScore(username.value, userScore)
+    .then(resJSON => console.log(resJSON));
+};
+
+username.addEventListener('keyup', () => {
+    console.log(username.value);
+    saveScoreBtn.disabled = !username.value;
+})
 
 
 
@@ -199,10 +215,16 @@ function startTimerLine(time){
      }
 }
 
-
-
 function queCounter(index){
     const bottom_ques_counter = quiz_box.querySelector(".total_que");
     let totalQuesCountTag = '<span><p>'+ index +'</p><p>of</p><p>'+ questions.length +'</p><p>Questions</p></span>';
     bottom_ques_counter.innerHTML = totalQuesCountTag;
+};
+
+
+function fetchandLoadScores() {
+    this.adapter = new ScoresAdapter;
+    this.adapter.getScores.then(scores =>{
+        console.log(scores)
+    })
 };

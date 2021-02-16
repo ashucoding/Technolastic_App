@@ -88,9 +88,29 @@
            <button class="restart">Replay Quiz</button>
            <button class="quit">Exit Quiz</button>
        </div>
+       <div class="submit_score">
+           <form>
+               <input 
+               type= "text"
+               name= "username"
+               id= "username"
+               placeholder= "username"
+               />
+               <button 
+               type="submit" 
+               class="btn"
+               id="saveScoreBtn"
+               onclick="saveHighScore(event)"
+               disabled
+               >
+               Submit Score
+            </button>
+           </form>
+       </div>
    </div>
 
     <script src="/js/questions.js"></script>
+    <script src="/src/adapters/Scoresadapter.js"></script>
     <script src="/js/script.js"></script>
 </body>
 </html>

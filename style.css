@@ -115,7 +115,8 @@ body{
     background: #007bff;
 }
 
-.buttons button.restart:hover{
+.buttons button.restart:hover,
+.submit_score button:hover{
     background: #0263ca;
 }
 
@@ -372,3 +373,31 @@ margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
+form{
+    padding: 20px;
+    display: inline-flexbox;
+   
+}
+
+form .input{
+    margin: 10px;
+    padding: 5px;
+}
+
+.submit_score button{
+    color: #fff;
+    background: #007bff;
+    margin: 0 10px;
+    height: 29px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
