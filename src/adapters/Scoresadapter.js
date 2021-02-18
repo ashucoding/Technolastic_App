@@ -4,7 +4,7 @@ class ScoresAdapter {
     }
 
     getScores(){
-        return fetch(this.baseUrl).then (res =>res.json())
+        return fetch(this.baseUrl).then(res =>res.json())
     }
 
     createScore(username, score) {

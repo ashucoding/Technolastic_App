@@ -3,15 +3,16 @@ const start_btn = document.querySelector(".start_btn button");
 const info_box = document.querySelector(".info_box");
 const exit_btn = info_box.querySelector(".buttons .quit");
 const continue_btn = info_box.querySelector(".buttons .restart");
-const quiz_box = document.querySelector(".quiz_box")
+const quiz_box = document.querySelector(".quiz_box");
 const option_list = document.querySelector(".option_list");
 const timeCount = quiz_box.querySelector(".timer .timer_sec");
 const timeline = quiz_box.querySelector("header .time_line");
 const timeoff = quiz_box.querySelector("header .time_text");
 const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById("saveScoreBtn");
+const high_scores_box = document.querySelector(".high_scores_box");
+const high_scores_list = document.getElementById("high_scores_list");
 const scoresAdapter = new ScoresAdapter();
-//const mostRecentScore = adapter.getScores('mostRecentScore');
 
 //start quiz button//
 start_btn.onclick = ()=>{
@@ -42,16 +43,19 @@ let userScore = 0;
 const next_btn = quiz_box.querySelector(".next_btn");
 const result_box = document.querySelector(".result_box");
 const restart_quiz = result_box.querySelector(".buttons .restart")
-const quit_quiz = result_box.querySelector(".buttons .quit")
+const quit_quiz = result_box.querySelector(".buttons .quit");
+const high_scores_box_restart = high_scores_box.querySelector(".buttons .restart");
+const high_scores_box_quit = high_scores_box.querySelector(".buttons .quit");
 
-restart_quiz.onclick = ()=>{
+
+function restartQuiz(activeBox, activeClass) {
     quiz_box.classList.add("activeQuiz");
-    result_box.classList.remove("activeResult");
-    let que_count = 0;
-    let que_numb = 1; 
-    let timevalue = 60;
-    let widthValue = 0;
-    let userScore = 0;
+    activeBox.classList.remove(activeClass);
+    que_count = 0;
+    que_numb = 1; 
+    timevalue = 60;
+    widthValue = 0;
+    userScore = 0;
     showQuestions(que_count);
     queCounter(que_numb);
     clearInterval(counter);
@@ -61,11 +65,15 @@ restart_quiz.onclick = ()=>{
     next_btn.style.display = "none";
     timeoff.textContent = "Time Left";
 }
+restart_quiz.onclick = () => restartQuiz(result_box, "activeResult");
+high_scores_box_restart.onclick = () => restartQuiz(high_scores_box, "activeHighScores");
 
-
-quit_quiz.onclick = ()=>{
+function quitQuiz() {
     window.location.reload();
 }
+
+quit_quiz.onclick = quitQuiz;
+high_scores_box_quit.onclick = quitQuiz;
 
 next_btn.onclick = ()=>{
     if (que_count < questions.length - 1) {
@@ -162,8 +170,34 @@ function saveHighScore(e){
     console.log("clicked the save button");
     e.preventDefault();
     scoresAdapter.createScore(username.value, userScore)
-    .then(resJSON => console.log(resJSON));
+    .then(resJSON => {
+        console.log(resJSON);
+        showHighScoresBox();
+    });
 };
+
+function showHighScoresBox() {
+    high_scores_list.innerHTML = ""; // clear list before showing high scores
+    high_scores_box.classList.add("activeHighScores");
+    result_box.classList.remove("activeResult");
+    scoresAdapter.getScores()
+    .then(respJSON => {
+            respJSON.map(score => {
+                
+                var scoreText = `${score.user.username}: ${score.body}`;
+                let li = document.createElement("li");
+                li.innerText = scoreText
+                high_scores_list.appendChild(li);
+            });
+            //     .subscribe(
+            //         data => {
+            //             this.scores = data.scores;
+            //             this.scores.forEach(m => console.log(<li>'${scores.name} - ${score.score}'</li>)
+            //             );
+            // }
+            
+    })
+}
 
 username.addEventListener('keyup', () => {
     console.log(username.value);

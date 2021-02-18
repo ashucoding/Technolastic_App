@@ -20,7 +20,8 @@ body{
 .start_btn,
 .info_box,
 .quiz_box,
-.result_box{
+.result_box,
+.high_scores_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -33,7 +34,8 @@ body{
 
 .info_box.activeInfo,
 .quiz_box.activeQuiz,
-.result_box.activeResult{
+.result_box.activeResult,
+.high_scores_box.activeHighScores{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -401,3 +403,17 @@ form .input{
     transition: all 0.3s ease;
 }
 
+.high_scores_box{
+    background: #fff;
+    width: 450px;
+    padding: 25px 30px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(1);
+}
