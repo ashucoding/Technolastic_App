@@ -177,25 +177,18 @@ function saveHighScore(e){
 };
 
 function showHighScoresBox() {
-    high_scores_list.innerHTML = ""; // clear list before showing high scores
+    high_scores_list.innerHTML = ""; // clear list before showing high
     high_scores_box.classList.add("activeHighScores");
     result_box.classList.remove("activeResult");
     scoresAdapter.getScores()
     .then(respJSON => {
             respJSON.map(score => {
                 
-                var scoreText = `${score.user.username}: ${score.body}`;
+                var scoreText = `${score.user.username} - ${score.body}`;
                 let li = document.createElement("li");
                 li.innerText = scoreText
                 high_scores_list.appendChild(li);
-            });
-            //     .subscribe(
-            //         data => {
-            //             this.scores = data.scores;
-            //             this.scores.forEach(m => console.log(<li>'${scores.name} - ${score.score}'</li>)
-            //             );
-            // }
-            
+            });  
     })
 }
 
