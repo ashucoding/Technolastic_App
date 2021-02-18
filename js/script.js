@@ -12,15 +12,33 @@ const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById("saveScoreBtn");
 const high_scores_box = document.querySelector(".high_scores_box");
 const high_scores_list = document.getElementById("high_scores_list");
+const top_players_box = document.querySelector(".top_players_box");
+const top_players_list = document.getElementById("top_players_list");
+const top_players_button = document.getElementById("top_players");
+const restartButton = document.getElementById("restart");
+const topExitButton = document.getElementById("top_exit");
 const scoresAdapter = new ScoresAdapter();
+const playersAdapter = new PlayersAdapter();
 
 //start quiz button//
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo");
 }
 
+restartButton.onclick = () => {
+    info_box.classList.add("activeInfo");
+    top_players_box.style.display = 'none';
+}
+
 exit_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo");
+    start_btn.style.display = 'block';
+}
+
+topExitButton.onclick = () => {
+    info_box.classList.remove("activeInfo");
+    top_players_box.style.display = 'none';
+    start_btn.style.display = 'block';
 }
 
 continue_btn.onclick = ()=>{
@@ -46,6 +64,9 @@ const restart_quiz = result_box.querySelector(".buttons .restart")
 const quit_quiz = result_box.querySelector(".buttons .quit");
 const high_scores_box_restart = high_scores_box.querySelector(".buttons .restart");
 const high_scores_box_quit = high_scores_box.querySelector(".buttons .quit");
+const top_players_box_restart = top_players_box.querySelector(".buttons .restart");
+const top_players_box_quit = top_players_box.querySelector(".buttons .quit");
+const top_players_box_show = top_players_box.querySelector(".buttons .players");
 
 
 function restartQuiz(activeBox, activeClass) {
@@ -192,6 +213,24 @@ function showHighScoresBox() {
     })
 }
 
+function showTopPlayersBox() {
+    console.log('ggg==>>', top_players_list);
+    top_players_list.innerHTML = ""; // clear list before showing top
+    top_players_box.classList.add("activeTopPlayers");
+    result_box.classList.remove("activeResult");
+    high_scores_box.classList.remove("activeHighScores");
+    playersAdapter.getPlayers()
+    .then(respJSON => {
+            respJSON.slice(-5).map(user => {
+                let li = document.createElement("li");
+                li.innerText = user.username
+                top_players_list.appendChild(li);
+                top_players_box.style.display = 'block';
+                start_btn.style.display = 'none';
+            });  
+    })
+}
+
 username.addEventListener('keyup', () => {
     console.log(username.value);
     saveScoreBtn.disabled = !username.value;
@@ -255,3 +294,13 @@ function fetchandLoadScores() {
         console.log(scores)
     })
 };
+
+function fetchandLoadPlayers() {
+//    this.adapter = new PlayersAdapter;
+    console.log('its working')
+    playersAdapter.getPlayers.then(username =>{
+        console.log(username)
+    });
+};
+
+top_players_button.addEventListener('click', showTopPlayersBox);

@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Techolastic Quiz</title>
-    <link rel="stylesheet" href="style.css"> 
-    <script src="http://kit.fontawesome.com/f508c24742.js" ></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="http://kit.fontawesome.com/f508c24742.js"></script>
 </head>
+
 <body>
     <!--Start Quiz Button-->
-   <div class="start_btn"><button>Start Quiz</button></div>
-   <!--Info Box-->
-   <div class="info_box">
-       <div class="info_title">
-           <span>Quiz Rules</span>
-       </div>
-       <div class="info_list">
-           <div class="info" >1. You will have only <span>60 seconds</span> to answer each question.</div>
-           <div class="info" >2. Once you select your answer, you can't reselect.</div>
-           <div class="info" >3. You can't select any options once the time goes off.</div>
-           <div class="info" >4. You can't exit from the Quiz while you're playing.</div>
-           <div class="info" >5. You'll get points for each correct answer.</div>
-       </div>
-       <div class="buttons">
-           <button class="quit">Exit Quiz</button>
-           <button class="restart">Continue</button>
-   </div>
-   </div>
+    <div class="start_btn"><button>Start Quiz</button></div>
+    <!--Info Box-->
+    <div class="info_box">
+        <div class="info_title">
+            <span>Quiz Rules</span>
+        </div>
+        <div class="info_list">
+            <div class="info">1. You will have only <span>60 seconds</span> to answer each question.</div>
+            <div class="info">2. Once you select your answer, you can't reselect.</div>
+            <div class="info">3. You can't select any options once the time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points for each correct answer.</div>
+        </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Continue</button>
+            <button class="players">Top Players</button>
+        </div>
+    </div>
 
-<!-- Quiz Box -->
-   <div class="quiz_box">
-       <header>
-           <div class="title">Techolastic Javascript Quiz</div>
-           <div class="timer">
-               <div class="time_text">Time Left</div>
-               <div class="timer_sec">60</div>
-           </div>
-           <div class="time_line"> </div>
-       </header>
-       <section>
-           <div class="que_text">
-               <!-- <span>What does DOM stand for?</span> -->
-           </div>
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Techolastic Javascript Quiz</div>
+            <div class="timer">
+                <div class="time_text">Time Left</div>
+                <div class="timer_sec">60</div>
+            </div>
+            <div class="time_line"> </div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- <span>What does DOM stand for?</span> -->
+            </div>
 
-           <div class="option_list">
+            <div class="option_list">
 
-               <div class="option">
-                   <!-- <span>Dictators Objecting Madness</span>
+                <div class="option">
+                    <!-- <span>Dictators Objecting Madness</span>
                    <div class="icon tick"><i class="fas fa-check"></i></div>
                 </div>
 
@@ -62,68 +65,71 @@
                 <div class="option">
                     <span>Digital Output Module</span>
                 </div> -->
+                </div>
+        </section>
+
+        <!--Quiz Box Footer-->
+        <footer>
+            <div class="total_que">
+                <!-- <span><p>2</p><p>of</p><p>10</p><p>Questions</p></span> -->
             </div>
-       </section>
+            <button class="next_btn">Next Question</button>
+        </footer>
+    </div>
 
-       <!--Quiz Box Footer-->
-       <footer>
-           <div class="total_que">
-               <!-- <span><p>2</p><p>of</p><p>10</p><p>Questions</p></span> -->
-           </div>
-           <button class="next_btn">Next Question</button>
-       </footer>
-   </div>
-   
 
-   <!--Results Box-->
-   <div class="result_box">
-       <div class="icon">
-           <i class="fas fa-crown"></i>
-       </div>
-       <div class="complete_text">You've Completed This Quiz</div>
-       <div class="score_text">
-           <!-- <span>and sorry, You got only <p>2</p> out of <p>10</p></span> -->
-       </div>
-       <div class="buttons">
-           <button class="restart">Replay Quiz</button>
-           <button class="quit">Exit Quiz</button>
-       </div>
-       <div class="submit_score">
-           <form>
-               <input 
-               type= "text"
-               name= "username"
-               id= "username"
-               placeholder= "username"
-               />
-               <button 
-               type="submit" 
-               class="btn"
-               id="saveScoreBtn"
-               onclick="saveHighScore(event)"
-               disabled
-               >
-               Submit Score
-            </button>
-           </form>
-       </div>
-   </div>
-
-   <!--High Scores Box-->
-   <div class="high_scores_box">
-        <div class="title">High Scores</div>
-        <ul id="high_scores_list">
-        </ul>
+    <!--Results Box-->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've Completed This Quiz</div>
+        <div class="score_text">
+            <!-- <span>and sorry, You got only <p>2</p> out of <p>10</p></span> -->
+        </div>
         <div class="buttons">
             <button class="restart">Replay Quiz</button>
             <button class="quit">Exit Quiz</button>
         </div>
+        <div class="submit_score">
+            <form>
+                <input type="text" name="username" id="username" placeholder="username" />
+                <button type="submit" class="btn" id="saveScoreBtn" onclick="saveHighScore(event)" disabled>
+                    Submit Score
+                </button>
+            </form>
+        </div>
     </div>
-    
-</div>
+
+    <!--High Scores Box-->
+    <div class="high_scores_box">
+        <div class="title">High Scores</div>
+        <ul id="high_scores_list">
+        </ul>
+        <div class="buttons">
+            <button id="top_players" class="players">Top Players</button>
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Exit Quiz</button>
+        </div>
+    </div>
+
+    <!--Top Players Box-->
+    <div class="top_players_box" style="display: none;">
+        <div class="title">Top Players</div>
+        <ul id="top_players_list">
+        </ul>
+        <div class="buttons">
+            <button id="restart" class="restart">Replay Quiz</button>
+            <button id="top_exit">Exit Quiz</button>
+        </div>
+    </div>
+
+    </div>
 
     <script src="/js/questions.js"></script>
     <script src="/src/adapters/Scoresadapter.js"></script>
+    <script src="/src/adapters/Playersadapter.js"></script>
     <script src="/js/script.js"></script>
 </body>
+
 </html>

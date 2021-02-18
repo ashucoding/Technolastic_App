@@ -430,7 +430,8 @@ form .input{
     cursor: pointer;
 }
 
-.high_scores_box button.quit{
+.high_scores_box button.quit,
+.high_scores_box button.players{
     font-size: 15px;
     font-weight: 500;
     color: #007bff;
