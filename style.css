@@ -21,7 +21,8 @@ body{
 .info_box,
 .quiz_box,
 .result_box,
-.high_scores_box{
+.high_scores_box
+.top_players_box{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -402,7 +403,19 @@ form .input{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-
+.top_players_box{
+    background: #fff;
+    width: 450px;
+    padding: 25px 30px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    border: 12px solid #007bff;
+}
 .high_scores_box{
     background: #fff;
     width: 450px;
@@ -443,7 +456,8 @@ form .input{
     cursor: pointer;
 }
 
-.high_scores_box .title{
+.high_scores_box .title,
+.top_players_box .title{
     color: #007bff;
     font-family: 'Poppins';
     font-size: 30px;
@@ -451,7 +465,8 @@ form .input{
     padding: 10px;
 } 
 
-#high_scores_list{
+#high_scores_list,
+#top_players_list{
     font-size: 20px;
     font-weight: 500;
     text-align: left;

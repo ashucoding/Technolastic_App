@@ -20,6 +20,7 @@ const topExitButton = document.getElementById("top_exit");
 const scoresAdapter = new ScoresAdapter();
 const playersAdapter = new PlayersAdapter();
 
+
 //start quiz button//
 start_btn.onclick = ()=>{
     info_box.classList.add("activeInfo");
@@ -204,11 +205,12 @@ function showHighScoresBox() {
     scoresAdapter.getScores()
     .then(respJSON => {
             respJSON.map(score => {
-                
-                var scoreText = `${score.user.username} - ${score.body}`;
-                let li = document.createElement("li");
-                li.innerText = scoreText
-                high_scores_list.appendChild(li);
+                const scoresObject = new Score(score.user.username, score.body);
+                scoresObject.render();
+                // var scoreText = `${score.user.username} - ${score.body}`;
+                // let li = document.createElement("li");
+                // li.innerText = scoreText
+                // high_scores_list.appendChild(li);
             });  
     })
 }
@@ -218,16 +220,20 @@ function showTopPlayersBox() {
     top_players_list.innerHTML = ""; // clear list before showing top
     top_players_box.classList.add("activeTopPlayers");
     result_box.classList.remove("activeResult");
-    high_scores_box.classList.remove("activeHighScores");
+    // high_scores_box.classList.remove("activeHighScores");
     playersAdapter.getPlayers()
     .then(respJSON => {
-            respJSON.slice(-5).map(user => {
-                let li = document.createElement("li");
-                li.innerText = user.username
-                top_players_list.appendChild(li);
-                top_players_box.style.display = 'block';
-                start_btn.style.display = 'none';
-            });  
+        console.log(respJSON);
+        let filtered_users = respJSON.filter(user => user.scores.length != 0);
+        filtered_users.slice(-5).map(user => {
+            // const scoresObject = new Score(user.username, user.array);
+            // scoresObject.render();
+            const new_user = new User(user.username, user.scores);
+            const li = new_user.render();
+            top_players_list.appendChild(li);
+            top_players_box.style.display = 'block';
+            start_btn.style.display = 'none';
+        });  
     })
 }
 
